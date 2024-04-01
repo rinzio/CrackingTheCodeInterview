@@ -1,4 +1,4 @@
-import helpers
+from StringsAndArrays import helpers
 
 
 # 1.1 Implement an algorithm to determine if all
@@ -50,3 +50,17 @@ def one_edit_away(a: str, b: str) -> bool:
         return helpers.one_insert_away(b, a)
 
     return False
+
+# 1.6 String compression, build a method to turn a
+#     string like 'aaabbccccaa' to 'a3b2c3a2'
+def compress(s: str) -> str:
+    ans = ''
+    i = 0
+    while i < len(s):
+        j = i
+        while j < len(s) and s[j] == s[i]:
+            j += 1
+        else:
+            ans += s[i] + str(j-i)
+            i = j
+    return ans
