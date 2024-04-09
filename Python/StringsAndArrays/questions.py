@@ -1,5 +1,6 @@
-from StringsAndArrays import helpers
+from typing import List
 
+from StringsAndArrays import helpers
 
 # 1.1 Implement an algorithm to determine if all
 #     characters on a string in are unique
@@ -64,3 +65,14 @@ def compress(s: str) -> str:
             ans += s[i] + str(j-i)
             i = j
     return ans
+
+
+# 1.7 Rotate a matrix, build a function to
+# rotate a matrix 90 degrees
+def rotate_90(m: List[List[int]]):
+    l = len(m)
+    n = [[0 for _ in range(l)] for _ in range(l)]
+    for i in range(l):
+        for j in range(l):
+            n[j][l-(i+1)] = m[i][j]
+    return n
